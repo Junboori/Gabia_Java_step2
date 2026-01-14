@@ -1,0 +1,40 @@
+package chapter14.vector;
+
+import java.util.Vector;
+
+public class VectorCapacity_01 {
+
+	public static void main(String[] args) {
+
+//		Vector<String> vector = new Vector<String>();
+		// Vector 방식:동기화 즉 멀티스레드에서 사용
+		// 최근에는 ArrayList를 기본으로 사용하고 sysnchronizedList를 추가
+//		List<String> sysList=Collections.synchronizedList(new ArrayList<>());
+
+		Vector<String> vector = new Vector<String>();
+
+		System.out.println("---기본 크기---");
+		System.out.println("초기 크기:" + vector.size());
+		System.out.println("초기 용량:" + vector.capacity());
+
+		vector.add("Apple");
+		vector.add("Banana");
+		vector.add("Cherry");
+
+		System.out.println("------------데이터 3개 증가 후 크기------------");
+		System.out.println("초기 크기: " + vector.size());
+		System.out.println("초기 용량: " + vector.capacity());
+
+		// 10개 이상의 데이터 추가
+		for (int i = 0; i < 8; i++) {
+			vector.add("Fruit" + (i + 1));
+		}
+
+		// 용량 초과 시 기존 크기 2배 증가
+		System.out.println("------------데이터 11개 증가 후 크기------------");
+		System.out.println("초기 크기: " + vector.size());
+		System.out.println("초기 용량: " + vector.capacity());
+
+	}
+
+}
